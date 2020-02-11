@@ -1,6 +1,14 @@
 import React from 'react';
 import logo from 'logo.svg';
 import style from 'App.module.scss';
+import WebFont from 'webfontloader';
+
+
+WebFont.load({
+  google: {
+    families: ['Roboto:400,700&display=swap']
+  }
+});
 
 function App() {
   return (
