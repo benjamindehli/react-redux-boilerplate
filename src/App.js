@@ -1,8 +1,23 @@
-import React from 'react';
-import logo from 'logo.svg';
-import style from 'App.module.scss';
+// Dependecies
+import React, { Component } from 'react';
+import {Provider} from 'react-redux';
+import {Route, Switch} from 'react-router';
+import {ConnectedRouter} from 'connected-react-router';
 import WebFont from 'webfontloader';
 
+// Utils
+import configureStore, {history} from 'utils/configureStore';
+
+// Routes
+import Home from 'components/routes/Home';
+import Commits from 'components/routes/Commits';
+import NotFound from 'components/routes/NotFound';
+
+// Partials
+import NavigationBar from 'components/partials/NavigationBar';
+
+// Stylesheets
+import style from 'App.module.scss';
 
 WebFont.load({
   google: {
@@ -10,20 +25,25 @@ WebFont.load({
   }
 });
 
-function App() {
-  return (
-    <div className={style.app}>
-      <header className={style.appHeader}>
-        <img src={logo} className={style.appLogo} alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a className={style.appLink} href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const initialState = {};
+const store = configureStore(initialState);
+
+class App extends Component {
+  render() {
+    return (<Provider store={store}>
+      <ConnectedRouter history={history}>
+        <div className={style.app}>
+          <NavigationBar />
+          <Switch>
+            <Route exact={true} path="/commits/:commitId" render={(props) => (<Commits {...props}/>)}/>
+            <Route exact={true} path="/commits" render={(props) => (<Commits {...props}/>)}/>
+            <Route exact={true} path="/" render={(props) => (<Home {...props}/>)}/>
+            <Route render={() => (<NotFound/>)}/>
+          </Switch>
+        </div>
+      </ConnectedRouter>
+    </Provider>);
+  }
 }
 
 export default App;
