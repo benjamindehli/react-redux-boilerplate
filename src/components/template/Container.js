@@ -1,7 +1,6 @@
 // Dependencies
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {NavLink} from 'react-router-dom';
 
 // Stylesheets
 import style from 'components/template/Container.module.scss';

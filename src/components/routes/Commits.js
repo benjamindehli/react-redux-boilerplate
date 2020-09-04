@@ -8,10 +8,6 @@ import CommitsList from 'components/partials/CommitsList';
 // Template
 import Container from 'components/template/Container';
 
-// Stylesheets
-import style from 'components/routes/Commits.module.scss';
-
-
 class Commits extends Component {
   renderCommitsList(commits) {
     const commitsElements = commits && commits.length
@@ -27,7 +23,7 @@ class Commits extends Component {
   render() {
     return (<Container>
       <h1>Commits</h1>
-      <CommitsList owner='benjamindehli' repo='react-redux-boilerplate' />
+      <CommitsList owner='benjamindehli' repo='react-redux-boilerplate'/>
     </Container>)
   }
 }

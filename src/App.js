@@ -16,9 +16,6 @@ import NotFound from 'components/routes/NotFound';
 // Partials
 import NavigationBar from 'components/partials/NavigationBar';
 
-// Stylesheets
-import style from 'App.module.scss';
-
 WebFont.load({
   google: {
     families: ['Roboto:400,700&display=swap']
