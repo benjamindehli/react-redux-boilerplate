@@ -32,15 +32,13 @@ class App extends Component {
   render() {
     return (<Provider store={store}>
       <ConnectedRouter history={history}>
-        <div className={style.app}>
-          <NavigationBar />
-          <Switch>
-            <Route exact={true} path="/commits/:commitId" render={(props) => (<Commits {...props}/>)}/>
-            <Route exact={true} path="/commits" render={(props) => (<Commits {...props}/>)}/>
-            <Route exact={true} path="/" render={(props) => (<Home {...props}/>)}/>
-            <Route render={() => (<NotFound/>)}/>
-          </Switch>
-        </div>
+        <NavigationBar />
+        <Switch>
+          <Route exact={true} path="/commits/:commitId" render={(props) => (<Commits {...props}/>)}/>
+          <Route exact={true} path="/commits" render={(props) => (<Commits {...props}/>)}/>
+          <Route exact={true} path="/" render={(props) => (<Home {...props}/>)}/>
+          <Route render={() => (<NotFound/>)}/>
+        </Switch>
       </ConnectedRouter>
     </Provider>);
   }
