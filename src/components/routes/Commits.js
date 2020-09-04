@@ -5,11 +5,14 @@ import {connect} from 'react-redux';
 // Components
 import CommitsList from 'components/partials/CommitsList';
 
+// Template
+import Container from 'components/template/Container';
+
 // Stylesheets
 import style from 'components/routes/Commits.module.scss';
 
-class Commits extends Component {
 
+class Commits extends Component {
   renderCommitsList(commits) {
     const commitsElements = commits && commits.length
       ? commits.map(commit => {
@@ -22,10 +25,10 @@ class Commits extends Component {
   }
 
   render() {
-    return (<div>
+    return (<Container>
       <h1>Commits</h1>
       <CommitsList owner='benjamindehli' repo='react-redux-boilerplate' />
-    </div>)
+    </Container>)
   }
 }
 
